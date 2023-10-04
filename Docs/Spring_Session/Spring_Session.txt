@@ -1,0 +1,40 @@
+Spring Session JDBC
+
+Spring Session is for Spring applications to share the same session.
+
+1. Add the following library to pom.xml:
+
+	<dependency>
+		<groupId>org.springframework.session</groupId>
+		<artifactId>spring-session-jdbc</artifactId>
+	</dependency>
+
+2. Add the following lines in application.properties:
+spring.session.store-type=jdbc
+spring.session.jdbc.initialize-schema=always
+server.servlet.session.cookie.path=/
+
+The first line specifies the store type is jdbc for Spring Session.
+The second line will make Spring Session automatically create 2 tables (SPRING_SESSION, SPRING_SESSION_ATTRIBUTES) that store session and session objects.
+The third line enable sharing session among different application context paths at the root level.
+
+3. Run application 1 as spring boot application and access at:
+http://localhost:7575/SpringSessionApp1/
+
+4. Run application 2 as spring boot application and access it in another tab of the same browser at:
+http://localhost:7676/SpringSessionApp2/
+
+5. Access H2 console to verify both application share an entry in SPRING_SESSION and SPRING_SESSION_ATTRIBUTES
+
+References:
+https://docs.spring.io/spring-session/docs/2.4.6/reference/html5/guides/boot-jdbc.html
+https://docs.spring.io/spring-session/docs/2.4.6/reference/html5/index.html
+https://springhow.com/spring-boot-jdbc-session/
+
+https://www.javainuse.com/spring/springboot_session
+
+Enable session shared by different application context paths:
+https://springhow.com/customizing-spring-session-cookies/
+
+https://springhow.com/spring-session-different-database/
+https://springhow.com/spring-boot-jdbc-session/

@@ -1,0 +1,68 @@
+Import H2 DB library add the following in pom.xml:
+	<dependency>
+		<groupId>com.h2database</groupId>
+		<artifactId>h2</artifactId>
+		<scope>runtime</scope>
+	</dependency> 
+
+-----------------------------------------------------------------------	
+Run H2 DB in server mode (Other applications can share the same H2 DB):
+-----------------------------------------------------------------------
+java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
+
+Screen shows:
+Web Console server running at http://192.168.1.197:8082 (others can connect)
+TCP server running at tcp://192.168.1.197:9092 (others can connect)
+PG server running at pg://192.168.1.197:5435 (only local connections)
+
+Add the following entries in application.properties to enable application to connect to H2 DB in server mode:
+
+spring.datasource.url=jdbc:h2:tcp://localhost:9092/~/data/SpringSessionDB
+spring.datasource.username=sa
+spring.datasource.password=sa
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+
+Use http://localhost:8082 to access H2 console in browser when H2 DB is running in server mode:
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:~/data/SpringSessionDB
+User Name: sa
+Password: sa
+
+The H2 data file, SpringSessionDB.mv.db, is at ~/data or C:\Users\[username]\data
+
+------------------------------------------------------------------------	
+Run H2 DB in file mode (Other applications cannot share the same H2 DB):
+------------------------------------------------------------------------
+Add the following entries in application.properties to enable application to connect to H2 DB in file mode:
+
+spring.datasource.url=jdbc:h2:~/data/SpringSessionDB
+spring.datasource.username=sa
+spring.datasource.password=sa
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+
+Use http://localhost:7575/SpringSessionApp1/h2-console to access H2 console in browser when H2 DB is running in server mode:
+Driver Class: org.h2.Driver
+JDBC URL: jdbc:h2:~/data/SpringSessionDB
+User Name: sa
+Password: sa
+
+The H2 data file, SpringSessionDB.mv.db, is at ~/data or C:\Users\[username]\data
+
+Enable H2 Console in Spring Security:
+See "Srping_Security for H2 Console.pdf" or
+https://jessitron.com/2020/06/15/spring-security-for-h2-console/
+
+protected void configure(HttpSecurity http) throws Exception {
+ 
+    http.authorizeRequests().antMatchers("/h2-console/**").permitAll()
+        .and().csrf().ignoringAntMatchers("/h2-console/**")
+        .and().headers().frameOptions().sameOrigin();
+// ... your other configuration
+}
+
+
+Reference:
+http://www.h2database.com/html/tutorial.html
+
