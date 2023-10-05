@@ -2,6 +2,7 @@ HELP.md
 **/target/
 SpringSessionApp1\target
 SpringSessionApp2\target
+SpringSessionApp3_SpringMVC\target
 
 ### STS ###
 .apt_generated

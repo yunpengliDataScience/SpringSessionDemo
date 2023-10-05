@@ -1,0 +1,18 @@
+1. Implement the SpringBootServletInitializer interface:
+@SpringBootApplication
+public class SpringBootTomcatApplication extends SpringBootServletInitializer {
+}
+
+2. Make WAR application instead of a JAR in pom.xml:
+<packaging>war</packaging>
+
+3. Add the Tomcat dependency:
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-tomcat</artifactId>
+   <scope>provided</scope>
+</dependency>
+
+
+References:
+https://www.baeldung.com/spring-boot-war-tomcat-deploy
