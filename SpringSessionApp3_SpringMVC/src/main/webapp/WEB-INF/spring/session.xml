@@ -33,4 +33,15 @@
 	    <property name="password" value="sa"/>
 	</bean>
 	
+	<bean class="org.springframework.session.web.http.DefaultCookieSerializer">
+		<!--  
+	    <property name="cookieName" value="test_sessionid"></property>
+	    -->
+	    <property name="cookiePath" value="/"></property>
+	    <!-- <property name="domainName" value="example.com"></property> -->
+	    <!-- 
+	    <property name="domainNamePattern" value="^.+?\.(\w+\.[a-z]+)$"></property>
+	    -->
+	</bean>
+	
 </beans>

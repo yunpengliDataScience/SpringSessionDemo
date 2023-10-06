@@ -38,3 +38,9 @@ https://springhow.com/customizing-spring-session-cookies/
 
 https://springhow.com/spring-session-different-database/
 https://springhow.com/spring-boot-jdbc-session/
+
+XML configure cookie path to make session shared by different applications:
+https://stackoverflow.com/questions/35076622/how-to-configure-spring-sesssion-custom-cookie-by-xml
+
+Java configure cookie path to make session shared by different applications:
+https://docs.spring.io/spring-session/reference/guides/java-custom-cookie.html
