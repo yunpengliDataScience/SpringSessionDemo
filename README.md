@@ -12,8 +12,11 @@ java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
 4. Access applications in Tomcat:
 
 http://localhost:8080/SpringSessionApp1/
+
 http://localhost:8080/SpringSessionApp2/
+
 http://localhost:8080/SpringSessionApp3_SpringMVC/
+
 http://localhost:8080/SpringSessionApp4_Servlet/
 
 5. Use http://localhost:8082 to access H2 console in browser when H2 DB is running in server mode:
