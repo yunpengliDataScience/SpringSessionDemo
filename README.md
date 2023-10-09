@@ -3,6 +3,7 @@
 Demonstrate 4 applications share sesssion by using Spring Session
 
 1. Run H2 DB in server mode (Other applications can share the same H2 DB):
+
 java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
 
 2. build.bat
