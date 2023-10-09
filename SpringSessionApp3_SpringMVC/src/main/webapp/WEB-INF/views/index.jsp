@@ -15,11 +15,11 @@
 <body>
 	<div class="container">
 		<h1>Description</h1>
-		<p>This application demonstrates how to use a relational database to back your session. Notice that there is no JSESSIONID cookie. We are also able to customize the way of identifying what the requested session id is.</p>
+		<p>This Spring MVC application demonstrates shared session attributes</p>
 
 		<h1>Try it</h1>
 
-		<form class="form-inline" role="form" action="./session" method="post">
+		<form class="form-inline" role="form" action="saveSessionAttribute" method="post">
 			<label for="attributeName">Attribute Name</label>
 			<input id="attributeName" type="text" name="attributeName"/>
 			<label for="attributeValue">Attribute Value</label>

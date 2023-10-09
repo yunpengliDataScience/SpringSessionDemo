@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc https://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<context:annotation-config/>
+	
+	<!-- Configure Spring Session JDBC  -->
+	<bean class="org.springframework.session.jdbc.config.annotation.web.http.JdbcHttpSessionConfiguration"/>
+
+	<!--
+	<jdbc:embedded-database id="dataSource" database-name="testdb" type="H2">
+		<jdbc:script location="classpath:org/springframework/session/jdbc/schema-h2.sql"/>
+	</jdbc:embedded-database>
+	-->
+	
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<!-- Configure the DataSource -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="org.h2.Driver"/>
+	    <property name="url" value="jdbc:h2:tcp://localhost:9092/~/data/SpringSessionDB"/>
+	    <property name="username" value="sa"/>
+	    <property name="password" value="sa"/>
+	</bean>
+	
+	<bean class="org.springframework.session.web.http.DefaultCookieSerializer">
+		<!--  
+	    <property name="cookieName" value="test_sessionid"></property>
+	    -->
+	    <property name="cookiePath" value="/"></property>
+	    <!-- <property name="domainName" value="example.com"></property> -->
+	    <!-- 
+	    <property name="domainNamePattern" value="^.+?\.(\w+\.[a-z]+)$"></property>
+	    -->
+	</bean>
+	
+</beans>

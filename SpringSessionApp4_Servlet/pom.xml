@@ -1,21 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.dragon.yunpeng</groupId>
-  <artifactId>SpringSessionApp3_SpringMVC</artifactId>
+  <artifactId>SpringSessionApp4_Servlet</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   
   <properties>
-        <spring.version>5.3.14</spring.version>
+        <spring.version>5.3.7</spring.version>
         <webjars-bootstrap.version>4.6.1</webjars-bootstrap.version>
         <webjars-webjars-taglib.version>0.3</webjars-webjars-taglib.version>
         <h2.version>1.4.200</h2.version>
-        <servlet-api.version>2.5</servlet-api.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
         <jstl.version>1.2</jstl.version>
         <slf4j.version>1.7.32</slf4j.version>
         <junit.version>5.8.0</junit.version>
         <assertj-core.version>3.21.0</assertj-core.version>
         <spring-session-jdbc.version>2.6.1</spring-session-jdbc.version>
+        <!-- Add other versions as needed -->
     </properties>
 
     <dependencies>
@@ -23,7 +24,7 @@
         <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-jdbc</artifactId>
-            <version>${spring-session-jdbc.version}</version>
+            <version>${spring-session-jdbc.version}</version> <!-- Specify the version you need -->
         </dependency>
 
         <!-- Spring Web -->
@@ -32,21 +33,6 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        
-        <!--  
-        <dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-context-support</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-        -->
-        
-        <!-- Spring MVC -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
 
         <!-- WebJars Bootstrap -->
         <dependency>
@@ -69,6 +55,13 @@
             <version>${h2.version}</version>
         </dependency>
 
+        <!-- JSTL (JavaServer Pages Standard Tag Library) -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
         <!-- SLF4J (Simple Logging Facade for Java) -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -77,25 +70,12 @@
         </dependency>
 
         <!-- Servlet API (provided scope) -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- JSTL (JavaServer Pages Standard Tag Library) -->
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${jstl.version}</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
+            <scope>provided</scope>
         </dependency>
-		
     </dependencies>
 
     <build>
