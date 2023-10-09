@@ -20,8 +20,14 @@ http://localhost:8080/SpringSessionApp3_SpringMVC/
 http://localhost:8080/SpringSessionApp4_Servlet/
 
 5. Use http://localhost:8082 to access H2 console in browser when H2 DB is running in server mode:
+
 Driver Class: org.h2.Driver
+
 JDBC URL: jdbc:h2:~/data/SpringSessionDB
+
 User Name: sa
+
 Password: sa
+
+
  
