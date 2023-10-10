@@ -8,12 +8,12 @@ Import H2 DB library add the following in pom.xml:
 -----------------------------------------------------------------------	
 Run H2 DB in server mode (Other applications can share the same H2 DB):
 -----------------------------------------------------------------------
-java -jar C:\H2\h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
+java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
 
 Screen shows:
-Web Console server running at http://192.168.1.197:8082 (others can connect)
-TCP server running at tcp://192.168.1.197:9092 (others can connect)
-PG server running at pg://192.168.1.197:5435 (only local connections)
+Web Console server running at http://localhost:8082 (others can connect)
+TCP server running at tcp://localhost:9092 (others can connect)
+PG server running at pg://localhost:5435 (only local connections)
 
 Add the following entries in application.properties to enable application to connect to H2 DB in server mode:
 
