@@ -8,7 +8,7 @@ Import H2 DB library add the following in pom.xml:
 -----------------------------------------------------------------------	
 Run H2 DB in server mode (Other applications can share the same H2 DB):
 -----------------------------------------------------------------------
-java -jar h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
+java -jar C:\H2\h2-1.4.200.jar -webAllowOthers -tcpAllowOthers
 
 Screen shows:
 Web Console server running at http://192.168.1.197:8082 (others can connect)
