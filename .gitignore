@@ -36,7 +36,7 @@ build/
 *settings
 .project
 .classpath
-*.jar
+
 swap_*
 *.log
 
