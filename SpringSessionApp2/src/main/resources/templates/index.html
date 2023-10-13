@@ -3,23 +3,59 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Spring Boot Session Example</title>
+	<title>Spring Session Application2 (Spring Boot)</title>
 </head>
 
 <body>
 	<div>
-		<h1>Spring Session Application2</h1>
+		<h1>Spring Session Application2 (Spring Boot)</h1>
 		<div>
 			<form th:action="@{/saveToSession}" method="post">
-				<textarea name="msg" cols="40" rows="2"></textarea>
-				<br> <input type="submit" value="Save Message To Session" />
+				<label for="attributeName">Attribute Name:</label>
+				<br/>
+				<input id="attributeName" type="text" name="attributeName"/>
+				<br/>
+				<label for="attributeValue">Attribute Value:</label>
+				<br/>
+				<textarea name="attributeValue" cols="40" rows="2"></textarea>
+				<br> <input type="submit" value="Save Data To Session" />
 			</form>
 		</div>
 		<div>
-			<h2>Messages in Session:</h2>
-			<ul th:each="object : ${sessionObjects}">
-				<li th:text="${object}">msg</li>
-			</ul>
+			<h2>Data in Session:</h2>
+			
+			<table border="1">
+				<tr>
+					<th>Attribute Name</th>
+					<th>Attribute Value</th>
+				</tr>
+			    <tr th:each="object : ${sessionObjects}">
+			        <td>[[${object.key}]]</td>
+			        <td>[[${object.value}]]</td>
+			    </tr>
+			</table>
+			
+			<!-- Print all variables
+			<table>
+			    <tr th:each="var : ${#vars.getVariableNames()}">
+			        <td th:text="${var}"></td>
+			        <td th:text="${#vars.getVariable(var)}"></td>
+			    </tr>
+			   
+			    <tr>
+			        <td>param</td>
+			        <td th:text="${#vars.getVariable('param')}"></td>
+			    </tr>
+			    <tr>
+			        <td>session</td>
+			        <td th:text="${#vars.getVariable('session')}"></td>
+			    </tr>
+			    <tr>
+			        <td>application</td>
+			        <td th:text="${#vars.getVariable('application')}"></td>
+			    </tr>
+			</table>
+			-->
 		</div>
 		<div>
 			<form th:action="@{/destroySession}" method="post">

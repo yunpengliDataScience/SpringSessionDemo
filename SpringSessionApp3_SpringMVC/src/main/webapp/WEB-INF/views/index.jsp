@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Session Attributes</title>
+	<title>Spring Session Application3 (SpringMVC)</title>
 	<wj:locate path="bootstrap.min.css" relativeTo="META-INF/resources" var="bootstrapCssLocation"/>
 	<link rel="stylesheet" href="<c:url value="${bootstrapCssLocation}"/>">
 	<style type="text/css">
