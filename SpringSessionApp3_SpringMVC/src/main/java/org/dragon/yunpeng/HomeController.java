@@ -27,6 +27,6 @@ public class HomeController {
 		String attributeValue = req.getParameter("attributeValue");
 		req.getSession().setAttribute(attributeName, attributeValue);
 
-		return "index";
+		return "redirect:/";
 	}
 }
